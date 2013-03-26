@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130210222748) do
+ActiveRecord::Schema.define(:version => 20130214034759) do
+
+  create_table "pages", :force => true do |t|
+    t.integer  "story_id",   :null => false
+    t.text     "body"
+    t.integer  "number",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["story_id", "number"], :name => "index_pages_on_story_id_and_number", :unique => true
+  add_index "pages", ["story_id"], :name => "index_pages_on_story_id"
 
   create_table "stories", :force => true do |t|
     t.string   "title"

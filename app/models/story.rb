@@ -1,3 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :body, :title
+  has_many :pages
+
+  attr_accessible :title
 end
