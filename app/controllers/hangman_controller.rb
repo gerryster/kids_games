@@ -1,4 +1,4 @@
-class HangMenController < ApplicationController
+class HangmanController < ApplicationController
   # GET /hang_men
   # GET /hang_men.json
   def index
