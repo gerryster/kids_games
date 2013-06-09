@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'haml-rails'
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -25,6 +25,7 @@ gem 'jquery-rails'
 
 group :development do
   gem "erb2haml"
+  gem "serve"
 end
 
 group :test, :development do
