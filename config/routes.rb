@@ -1,6 +1,6 @@
 KidsGames::Application.routes.draw do
   resources :stories
-  resources :hangman
+  match 'hangman' => 'hangman#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
