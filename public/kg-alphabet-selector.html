@@ -1,8 +1,20 @@
 <element name="kg-alphabet-selector">
   <template>
-    <span>I'm an <b>alphabet selector</b>. This is my Shadow DOM.</span>
+    <ol>
+      <template repeat="{{alphabet}}">
+        <li>{{letter}}</li>
+      </template>
+    </ol>
   </template>
   <script>
-    Polymer.register(this);
+    Polymer.register(this, {
+      ready: function() {
+        var alphabet = [];
+        ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("").forEach(function(letter, i) {
+          alphabet.push({letter: letter});
+        });
+        this.alphabet = alphabet
+      }
+    });
   </script>
 </element>
