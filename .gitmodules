@@ -1,3 +1,6 @@
 [submodule "vendor/assets/javascripts/toolkit-ui"]
 	path = vendor/assets/javascripts/toolkit-ui
 	url = git://github.com/Polymer/toolkit-ui.git
+[submodule "vendor/assets/javascripts/polymer-all"]
+	path = vendor/assets/javascripts/polymer-all
+	url = git://github.com/Polymer/polymer-all.git

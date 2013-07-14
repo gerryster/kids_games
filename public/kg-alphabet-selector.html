@@ -1,4 +1,4 @@
-<element name="kg-alphabet-selector">
+<polymer-element name="kg-alphabet-selector">
   <template>
     <ol>
       <template repeat="{{alphabet}}">
@@ -7,14 +7,14 @@
     </ol>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('kg-alphabet-selector', {
       ready: function() {
         var alphabet = [];
         ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("").forEach(function(letter, i) {
           alphabet.push({letter: letter});
         });
-        this.alphabet = alphabet
+        this.alphabet = alphabet;
       }
     });
   </script>
-</element>
+</polymer-element>

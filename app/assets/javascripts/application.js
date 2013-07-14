@@ -13,4 +13,4 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-//= require polymer/polymer
+//= require polymer-all/polymer/polymer
