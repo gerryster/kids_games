@@ -1,6 +1,14 @@
 <polymer-element name="kg-model">
   <script>
     Polymer('kg-model', {
+      ready: function() {
+        this.asyncMethod(function() {
+          this.answer = "foo";
+          this.guess = "f";
+          // use an object for the set behavior of the keys:
+          this.incorrectLetters = {};
+        });
+      }
     });
   </script>
 </polymer-element>

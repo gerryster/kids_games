@@ -5,8 +5,8 @@
 <polymer-element name="kg-hangman">
   <template>
     <h1>Hang Man</h1>
-    <kg-model></kg-model>
-    <kg-word-display></kg-word-display>
+    <kg-model id="model"></kg-model>
+    <kg-word-display guess="{{$.model.guess}}"></kg-word-display>
     <kg-alphabet-selector></kg-alphabet-selector>
   </template>
   <script>
