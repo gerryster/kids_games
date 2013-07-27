@@ -1,8 +1,8 @@
-<polymer-element name="kg-alphabet-selector">
+<polymer-element name="kg-alphabet-selector" attributes="model">
   <template>
     <ol>
       <template repeat="{{alphabet}}">
-        <li>{{letter}}</li>
+        <li on-click="selectLetter">{{letter}}</li>
       </template>
     </ol>
   </template>
@@ -14,6 +14,10 @@
           alphabet.push({letter: letter});
         });
         this.alphabet = alphabet;
+      },
+
+      selectLetter: function(event) {
+        this.model.guessLetter(event.target.textContent);
       }
     });
   </script>

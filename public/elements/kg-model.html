@@ -3,11 +3,28 @@
     Polymer('kg-model', {
       ready: function() {
         this.asyncMethod(function() {
-          this.answer = "foo";
-          this.guess = "f";
+          this.answer = "cat";
+          // create a placeholder space character for every letter in the answer
+          this.guess = new Array(this.answer.length + 1).join(" ");
           // use an object for the set behavior of the keys:
           this.incorrectLetters = {};
         });
+      },
+
+      guessLetter: function(guessedLetter) {
+        guessedLetter = guessedLetter.toLocaleLowerCase();
+        var foundIdx = this.answer.indexOf(guessedLetter);
+        if(foundIdx >= 0) {
+          // add to found letters
+          // TODO: fix this for repeating letters
+          this.guess = this.guess.substr(0, foundIdx) + this.answer.substr(foundIdx, 1)
+              + this.guess.substr(foundIdx + 1, this.answer.length);
+          console.log("string function produced: ", this.guess);
+        } else {
+          console.log("incorrect guess: " + guessedLetter);
+          // TODO: advance death
+          this.incorrectLetters[guessedLetter] = true;
+        }
       }
     });
   </script>
