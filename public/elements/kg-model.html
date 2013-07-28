@@ -11,21 +11,34 @@
         });
       },
 
-      guessLetter: function(guessedLetter) {
-        guessedLetter = guessedLetter.toLocaleLowerCase();
-        var foundIdx = this.answer.indexOf(guessedLetter);
-        if(foundIdx >= 0) {
-          // add to found letters
-          // TODO: fix this for repeating letters
-          this.guess = this.guess.substr(0, foundIdx) + this.answer.substr(foundIdx, 1)
-              + this.guess.substr(foundIdx + 1, this.answer.length);
-          console.log("string function produced: ", this.guess);
+      guessLetter: function(letter) {
+        letter = letter.toLocaleLowerCase();
+        if(this.answer.indexOf(letter) >= 0) {
+          this._updateGuess(letter);
         } else {
-          console.log("incorrect guess: " + guessedLetter);
+          console.log("incorrect guess: " + letter);
           // TODO: advance death
-          this.incorrectLetters[guessedLetter] = true;
+          this.incorrectLetters[letter] = true;
+        }
+      },
+
+      // update the guess with the found letter
+      _updateGuess: function(letter) {
+        // TODO: this is quite imperative: rewrite this to be functional
+        var foundIdx = 0;
+        var lastReplaceIdx = 0;
+        while ((foundIdx = this.answer.substr(lastReplaceIdx).indexOf(letter)) >= 0) {
+          this.guess = this.guess.replaceAt(lastReplaceIdx + foundIdx, letter);
+
+          // advance past the last replace
+          lastReplaceIdx = lastReplaceIdx + foundIdx + 1;
         }
       }
     });
+
+    // From http://stackoverflow.com/questions/1431094/how-do-i-replace-a-character-at-a-particular-index-in-javascript
+    String.prototype.replaceAt = function(index, character) {
+      return this.substr(0, index) + character + this.substr(index+character.length);
+    }
   </script>
 </polymer-element>
