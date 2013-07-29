@@ -1,6 +1,8 @@
 <polymer-element name="kg-model">
   <script>
     Polymer('kg-model', {
+      incorrectCount: 0,
+
       ready: function() {
         this.asyncMethod(function() {
           this.answer = "cat";
@@ -17,7 +19,7 @@
           this._updateGuess(letter);
         } else {
           console.log("incorrect guess: " + letter);
-          // TODO: advance death
+          this.incorrectCount++;
           this.incorrectLetters[letter] = true;
         }
       },

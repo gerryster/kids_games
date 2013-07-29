@@ -1,5 +1,6 @@
 <link rel="import" href="kg-word-display">
 <link rel="import" href="kg-alphabet-selector">
+<link rel="import" href="kg-man">
 <link rel="import" href="kg-model">
 
 <polymer-element name="kg-hangman">
@@ -7,6 +8,7 @@
     <h1>Hang Man</h1>
     <kg-model id="model"></kg-model>
     <kg-word-display guess="{{$.model.guess}}"></kg-word-display>
+    <kg-man incorrectCount="{{$.model.incorrectCount}}"></kg-man>
     <kg-alphabet-selector model="{{$.model}}"></kg-alphabet-selector>
   </template>
   <script>
