@@ -1,6 +1,9 @@
 <polymer-element name="kg-word-display" attributes="guess">
   <template>
-    <h2>Guess: {{guess}}</h2>
+    <link rel="stylesheet" href="/assets/elements/kg-word-display.css">
+    <div id="container">
+      <h2>Guess: {{guess}}</h2>
+    </div>
   </template>
   <script>
     Polymer('kg-word-display', {

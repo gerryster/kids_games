@@ -5,10 +5,13 @@
 
 <polymer-element name="kg-hangman">
   <template>
+    <link rel="stylesheet" href="/assets/elements/kg-hangman.css">
     <h1>Hang Man</h1>
     <kg-model id="model"></kg-model>
-    <kg-word-display guess="{{$.model.guess}}"></kg-word-display>
-    <kg-man incorrectCount="{{$.model.incorrectCount}}"></kg-man>
+    <div id="top-container">
+      <kg-word-display guess="{{$.model.guess}}"></kg-word-display>
+      <kg-man incorrectCount="{{$.model.incorrectCount}}"></kg-man>
+    </div>
     <kg-alphabet-selector model="{{$.model}}"></kg-alphabet-selector>
   </template>
   <script>
