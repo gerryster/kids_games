@@ -1,10 +1,9 @@
 <polymer-element name="kg-alphabet-selector" attributes="model">
   <template>
-    <ol>
-      <template repeat="{{alphabet}}">
-        <li on-click="selectLetter">{{letter}}</li>
-      </template>
-    </ol>
+    <template repeat="{{alphabet}}">
+      <label for="letter-{{letter}}">{{letter}}</label>
+      <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="selectLetter"><br>
+    </template>
   </template>
   <script>
     Polymer('kg-alphabet-selector', {
@@ -17,7 +16,7 @@
       },
 
       selectLetter: function(event) {
-        this.model.guessLetter(event.target.textContent);
+        this.model.guessLetter(event.target.value);
       }
     });
   </script>
