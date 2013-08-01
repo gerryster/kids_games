@@ -1,12 +1,14 @@
 <polymer-element name="kg-model">
   <script>
     Polymer('kg-model', {
-      MAX_GUESSES: 10,
+      MAX_INCORRECT_GUESSES: 2,
 
       ready: function() {
         this.asyncMethod(function() {
           this.incorrectCount = 0;
-          this.answer = "cat";
+          this.gameOver = false
+          this.won = false;
+          this.answer = "abc";
           // create a placeholder space character for every letter in the answer
           this.guess = new Array(this.answer.length + 1).join(" ");
           // use an object for the set behavior of the keys:
@@ -40,10 +42,11 @@
 
       checkGameOver: function() {
         if(this.answer === this.guess) {
-          alert("You won!  Nice job!");
+          this.won = true;
+          this.gameOver = true
           this.resetGame();
-        } else if(this.incorrectCount === this.MAX_GUESSES) {
-          alert("Sorry, the man is dead.  Better luck next time.");
+        } else if(this.incorrectCount === this.MAX_INCORRECT_GUESSES) {
+          this.gameOver = true
           this.resetGame();
         }
       },

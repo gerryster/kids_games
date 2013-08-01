@@ -1,0 +1,20 @@
+<polymer-element name="kg-game-over" attributes="gameOver won answer">
+  <template>
+    <!-- TODO: make this a dialog -->
+    <div style="display: none">You won! Nice Job!</div>
+    <!-- TODO: when this is dismissed, the game is reset -->
+  </template>
+  <script>
+    Polymer('kg-game-over', {
+      gameOverChanged: function() {
+        if(this.gameOver) {
+          if(this.won) {
+            alert("You found the word: " + this.answer + ".  Nice job!");
+          } else {
+            alert("Sorry, the man is dead.  Better luck next time.");
+          }
+        }
+      }
+    });
+  </script>
+</polymer-element>
