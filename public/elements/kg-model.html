@@ -11,8 +11,6 @@
           this.answer = "baa";
           // create a placeholder space character for every letter in the answer
           this.guess = new Array(this.answer.length + 1).join(" ");
-          // use an object for the set behavior of the keys:
-          this.incorrectLetters = {};
         });
       },
 
@@ -22,7 +20,6 @@
           this._updateGuess(letter);
         } else {
           this.incorrectCount++;
-          this.incorrectLetters[letter] = true;
         }
         this.checkGameOver();
       },
