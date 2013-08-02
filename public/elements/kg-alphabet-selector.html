@@ -2,13 +2,24 @@
   <template>
     <template repeat="{{alphabet}}">
       <label for="letter-{{letter}}">{{letter}}</label>
-      <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="selectLetter"><br>
+      <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="clickLetter"><br>
     </template>
   </template>
   <script>
     Polymer('kg-alphabet-selector', {
+      ready: function() {
+        var self = this;
+
+        // allow letters to be chosen by keyboard
+        document.addEventListener('keyup', function(event) {
+          var guess = String.fromCharCode(event.keyCode);
+          var guessFound = _.find(self.alphabet,
+              function(letter_obj){ return letter_obj.letter === guess });
+          if(guessFound) { self.selectLetter(guess); }
+        }, true);
+      },
+
       initAlphabet: function() {
-        console.log("in setupAlphabet");
         var alphabet = [];
         ("ABCDEFGHIJKLMNOPQRSTUVWXYZ").split("").forEach(function(letter, i) {
           alphabet.push({letter: letter});
@@ -16,8 +27,9 @@
         this.alphabet = alphabet;
       },
 
-      selectLetter: function(event) {
-        var letter = event.target.value;
+      clickLetter: function(event){ this.selectLetter(event.target.value); },
+
+      selectLetter: function(letter) {
         this.model.guessLetter(letter);
         this.alphabet = _.filter(this.alphabet,
             function(letter_obj){ return letter_obj.letter !== letter })
