@@ -1,4 +1,4 @@
-<polymer-element name="kg-alphabet-selector" attributes="model">
+<polymer-element name="kg-alphabet-selector" attributes="model gameOver">
   <template>
     <template repeat="{{alphabet}}">
       <label for="letter-{{letter}}">{{letter}}</label>
@@ -16,7 +16,15 @@
       },
 
       selectLetter: function(event) {
-        this.model.guessLetter(event.target.value);
+        var letter = event.target.value;
+        this.model.guessLetter(letter);
+        this.alphabet = _.filter(this.alphabet,
+            function(letter_obj){ return letter_obj.letter !== letter })
+      },
+
+      gameOverChanged: function() {
+        // re-initalize this element when the game starts
+        !this.gameOver && this.ready();
       }
     });
   </script>
