@@ -1,14 +1,20 @@
 <polymer-element name="kg-model">
   <script>
     Polymer('kg-model', {
-      MAX_INCORRECT_GUESSES: 2,
+      MAX_INCORRECT_GUESSES: 10,
+      WORDS: [
+        'cat', 'dog', 'pork', 'milk', 'love', 'eli', 'daddy', 'mommy', 'pig',
+        'cow', 'chair', 'ball', 'kite', 'bat', 'bird', 'one', 'two', 'three',
+        'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
+      ],
 
       ready: function() {
         this.asyncMethod(function() {
           this.incorrectCount = 0;
           this.gameOver = false
           this.won = false;
-          this.answer = "baa";
+          this.answer = this._randomWord();
+          console.log("the answer is: " + this.answer);
           // create a placeholder space character for every letter in the answer
           this.guess = new Array(this.answer.length + 1).join(" ");
         });
@@ -50,7 +56,13 @@
 
       resetGame: function() {
         this.ready();
+      },
+
+      _randomWord: function() {
+        return this.WORDS[Math.floor(Math.random() * this.WORDS.length)];
       }
+
+
     });
 
     // From http://stackoverflow.com/questions/1431094/how-do-i-replace-a-character-at-a-particular-index-in-javascript
