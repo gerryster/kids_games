@@ -1,6 +1,6 @@
 TODO
-- man sprite
 - Style the word display
+- man sprite
 - Style the letter selector
 - more words
 - improve the game-over element with a dialog
