@@ -1,29 +1,16 @@
 <polymer-element name="kg-word-display" attributes="guess">
   <template>
     <link rel="stylesheet" href="/assets/elements/kg-word-display.css">
-    <template repeat={{guessLetters}}>
-      <div class="letter">{{letter}}</div>
-    </template>
+    {{formattedGuess}}
   </template>
   <script>
     Polymer('kg-word-display', {
-      guessLetters: [],
+      formattedGuess: '',
 
-      ready: function() {
-        this.updateGuessLetters();
-      },
-
-      guessChanged: function() { this.updateGuessLetters(); },
-
-      updateGuessLetters: function() {
-        // bail if guess is not initialized
+      guessChanged: function() {
         if(!this.guess) { return; }
-        console.log("guess is: '" + this.guess + "'");
-        this.guessLetters = _.map(this.guess.split(''),
-          function(letter) {
-            return { letter: letter === ' ' ? '_' : letter }
-          });
-      }
+        this.formattedGuess = this.guess.replace(/ /g, '_');
+      },
     });
   </script>
 </polymer-element>
