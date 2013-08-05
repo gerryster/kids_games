@@ -1,5 +1,4 @@
 TODO
-- Style the word display
 - man sprite
 - Style the letter selector
 - more words
