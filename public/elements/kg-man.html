@@ -1,12 +1,17 @@
 <polymer-element name="kg-man" attributes="incorrectCount">
   <template>
-    <h2>Incorrect Guesses: {{incorrectCount}}<h2>
+    <link rel="stylesheet" href="/assets/elements/kg-man.css">
+    <div id="man">
+    </div>
   </template>
   <script>
     Polymer('kg-man', {
-      //ready: function() {
-      //  incorrectCount: 0
-      //}
+      IMAGE_HEIGHT_PX: 400,
+
+      incorrectCountChanged: function() {
+        var yOffset = this.incorrectCount * - this.IMAGE_HEIGHT_PX;
+        this.$.man.style.backgroundPosition = "0 " + yOffset + "px";
+      }
     });
   </script>
 </polymer-element>
