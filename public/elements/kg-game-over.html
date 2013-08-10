@@ -3,13 +3,11 @@
     <style>
 
     </style>
-    <kg-modal-dialog>
-      <h1>You won! Nice Job!</h1>
-      <button on-click="continueGame">OK</button>
-    </kg-modal-dialog>
-    <!--<template if="{{won}}">
-  -->
-    <template>
+    <template if="{{won}}">
+      <kg-modal-dialog>
+        <h1>You won! Nice Job!</h1>
+        <button on-click="continueGame">OK</button>
+      </kg-modal-dialog>
     </template>
   </template>
 
@@ -26,8 +24,7 @@
       },
 
       continueGame: function() {
-        console.log("in continueGame");
-        this.gameState.canReset = true;
+        this.gameState.resetGame();
       }
     });
   </script>

@@ -7,8 +7,6 @@
         'cow', 'chair', 'ball', 'kite', 'bat', 'bird', 'one', 'two', 'three',
         'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
       ],
-      // Set here so that it is available for other elements to change.
-      canReset: false,
 
       ready: function() {
         this.asyncMethod(function() {
@@ -54,14 +52,7 @@
         }
       },
 
-      canResetChanged: function() {
-        if(this.canReset) {
-          this.resetGame();
-        }
-      },
-
       resetGame: function() {
-        this.canReset = false;
         this.ready();
       },
 
