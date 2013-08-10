@@ -1,0 +1,20 @@
+<polymer-element name="kg-modal-dialog">
+  <template>
+    <style>
+      @host {
+        kg-modal-dialog {
+          border: 10px solid black;
+          display: block;
+          position: fixed;
+          z-index: 10;
+          outline: none;
+          opacity: 0.99;
+          -webkit-transition: opacity 0.001s;
+          transition: opacity 0.001s;
+        }
+      }
+    </style>
+    <content></content>
+  </template>
+  <script>Polymer('kg-modal-dialog');</script>
+</polymer-element>

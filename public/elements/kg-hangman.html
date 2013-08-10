@@ -3,9 +3,13 @@
 <link rel="import" href="kg-man">
 <link rel="import" href="kg-model">
 <link rel="import" href="kg-game-over">
+<link rel="import" href="x-foo">
+<link rel="import" href="kg-modal-dialog">
 
 <polymer-element name="kg-hangman">
   <template>
+    <kg-game-over gameOver="{{$.model.gameOver}}" won="{{$.model.won}}" answer="{{$.model.answer}}" gameState="{{$.model}}">
+    </kg-game-over>
     <link rel="stylesheet" href="/assets/elements/kg-hangman.css">
     <kg-model id="model"></kg-model>
     <div id="top-container">
@@ -13,7 +17,6 @@
       <kg-man incorrectCount="{{$.model.incorrectCount}}"></kg-man>
     </div>
     <kg-alphabet-selector model="{{$.model}}" gameOver="{{$.model.gameOver}}"></kg-alphabet-selector>
-    <kg-game-over gameOver="{{$.model.gameOver}}" won="{{$.model.won}}" answer="{{$.model.answer}}" gameState="{{$.model}}"></kg-game-over>
   </template>
   <script>
     Polymer('kg-hangman', {

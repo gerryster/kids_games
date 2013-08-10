@@ -1,9 +1,18 @@
 <polymer-element name="kg-game-over" attributes="gameOver won answer gameState">
   <template>
-    <template if="{{won}}">
-      <div><h1>You won! Nice Job!</h1><button on-click="continueGame">OK</button></div>
+    <style>
+
+    </style>
+    <kg-modal-dialog>
+      <h1>You won! Nice Job!</h1>
+      <button on-click="continueGame">OK</button>
+    </kg-modal-dialog>
+    <!--<template if="{{won}}">
+  -->
+    <template>
     </template>
   </template>
+
   <script>
     Polymer('kg-game-over', {
       gameOverChanged: function() {
