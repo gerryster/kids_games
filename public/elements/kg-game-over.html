@@ -1,11 +1,11 @@
-<polymer-element name="kg-game-over" attributes="gameOver won answer gameState">
+<polymer-element name="kg-game-over" attributes="gameOver gameState">
   <template>
     <style>
 
     </style>
-    <template if="{{won}}">
+    <template if="{{gameState.won}}">
       <kg-modal-dialog>
-        <h1>You won! Nice Job!</h1>
+        <h1>You found the word {{gameState.answer}}.  Nice Job!</h1>
         <button on-click="continueGame">OK</button>
       </kg-modal-dialog>
     </template>
@@ -15,8 +15,8 @@
     Polymer('kg-game-over', {
       gameOverChanged: function() {
         if(this.gameOver) {
-          if(this.won) {
-            console.log("You found the word: " + this.answer + ".  Nice job!");
+          if(this.gameState.won) {
+            console.log("You found the word: " + this.gameState.answer + ".  Nice job!");
           } else {
             alert("Sorry, the man is dead.  Better luck next time.");
           }

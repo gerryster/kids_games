@@ -3,7 +3,8 @@
     <style>
       @host {
         kg-modal-dialog {
-          border: 10px solid black;
+          border: 1px solid black;
+          background: white;
           display: block;
           position: fixed;
           z-index: 10;
