@@ -1,7 +1,6 @@
 TODO
-- Style the letter selector
+- Improve end of game interaction
 - more words
-- improve the game-over element with a dialog
 - extract from the rails app
 - add browser history support
 - User session support
