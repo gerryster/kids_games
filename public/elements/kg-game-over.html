@@ -1,28 +1,58 @@
-<polymer-element name="kg-game-over" attributes="gameOver gameState">
+<link rel="import" href="/assets/polymer-all/polymer-ui-elements/polymer-ui-overlay/polymer-ui-overlay.html">
+
+<polymer-element name="kg-game-over" attributes="gameState">
   <template>
     <style>
+      /* CSS copied from http://www.polymer-project.org/polymer-all/polymer-elements/polymer-overlay/index.html */
+      .dialog {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 13px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        overflow: hidden;
+        background: white;
+        padding:30px 42px;
+        outline: 1px solid rgba(0,0,0,0.2);
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        text-align: center;
+      }
 
+      polymer-ui-overlay {
+        top: 72px;
+        left: 50%;
+        width: 512px;
+        margin-left: -256px;
+      }
+
+      polymer-ui-overlay p {
+        font-size: 18px;
+      }
     </style>
     <template if="{{gameState.won}}">
-      <kg-modal-dialog>
-        <h1>You found the word {{gameState.answer}}.  Nice Job!</h1>
-        <button on-click="continueGame">OK</button>
-      </kg-modal-dialog>
+      <polymer-ui-overlay id="dialog-won" active="true" backdrop="true" modal="true">
+        <!-- with the given CSS, the backdrop property does not work without this container div -->
+        <div class="dialog">
+          <p>You found the word <em>{{gameState.answer}}</em>. &nbsp;Nice Job!</p>
+          <button overlay-toggle on-click="continueGame">New Game</button>
+        </div>
+      </polymer-ui-overlay>
+    </template>
+
+    <template if="{{gameState.gameOver && !gameState.won}}">
+      <polymer-ui-overlay id="dialog-lost" active="true" backdrop="true" modal="true">
+        <div class="dialog">
+          <p>Sorry, the man is dead.</p>
+          <!--<button overlay-toggle on-click="continueGame">Try Again</button>-->
+          <button overlay-toggle on-click="continueGame">New Word</button>
+        </div>
+      </polymer-ui-overlay>
     </template>
   </template>
 
   <script>
     Polymer('kg-game-over', {
-      gameOverChanged: function() {
-        if(this.gameOver) {
-          if(this.gameState.won) {
-            console.log("You found the word: " + this.gameState.answer + ".  Nice job!");
-          } else {
-            alert("Sorry, the man is dead.  Better luck next time.");
-          }
-        }
-      },
-
       continueGame: function() {
         this.gameState.resetGame();
       }

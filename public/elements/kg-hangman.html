@@ -7,7 +7,6 @@
 
 <polymer-element name="kg-hangman">
   <template>
-    <kg-game-over gameOver="{{$.model.gameOver}}" gameState="{{$.model}}">
     </kg-game-over>
     <link rel="stylesheet" href="/assets/elements/kg-hangman.css">
     <kg-model id="model"></kg-model>
@@ -16,6 +15,7 @@
       <kg-man incorrectCount="{{$.model.incorrectCount}}"></kg-man>
     </div>
     <kg-alphabet-selector model="{{$.model}}" gameOver="{{$.model.gameOver}}"></kg-alphabet-selector>
+    <kg-game-over gameState="{{$.model}}">
   </template>
   <script>
     Polymer('kg-hangman', {
