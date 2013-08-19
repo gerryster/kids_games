@@ -1,5 +1,12 @@
+@host {
+  kg-hangman {
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
 #top-container {
   #overflow: auto;
+  margin: 15px 5px 5px 5px;
 }
 
 kg-word-display {
