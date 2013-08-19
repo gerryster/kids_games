@@ -36,7 +36,7 @@
         _.map(this.answer.split(""),
           function(answerLetter){
             if(guessLetter === answerLetter.toLocaleLowerCase()) {
-              this.guess = this.guess.replaceAt(cursor, answerletter)
+              this.guess = this.guess.replaceAt(cursor, answerLetter)
             }
             cursor++;
           }, this);
