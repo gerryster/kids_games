@@ -8,7 +8,6 @@
         'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
       ],
 
-
       ready: function() {
         this.asyncMethod(function() {
           this.incorrectCount = 0;
@@ -37,7 +36,7 @@
         _.map(this.answer.split(""),
           function(answerLetter){
             if(guessLetter === answerLetter.toLocaleLowerCase()) {
-              this.guess = this.guess.replaceAt(cursor, answerLetter)
+              this.guess = this.guess.replaceAt(cursor, answerletter)
             }
             cursor++;
           }, this);
