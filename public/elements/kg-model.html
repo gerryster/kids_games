@@ -3,10 +3,11 @@
     Polymer('kg-model', {
       MAX_INCORRECT_GUESSES: 10,
       WORDS: [
-        'cat', 'dog', 'pork', 'milk', 'love', 'eli', 'daddy', 'mommy', 'pig',
+        'cat', 'dog', 'pork', 'milk', 'love', 'Eli', 'daddy', 'mommy', 'pig',
         'cow', 'chair', 'ball', 'kite', 'bat', 'bird', 'one', 'two', 'three',
         'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
       ],
+
 
       ready: function() {
         this.asyncMethod(function() {
@@ -22,7 +23,7 @@
 
       guessLetter: function(letter) {
         letter = letter.toLocaleLowerCase();
-        if(this.answer.indexOf(letter) >= 0) {
+        if(this.answer.toLocaleLowerCase().indexOf(letter) >= 0) {
           this._updateGuess(letter);
         } else {
           this.incorrectCount++;
@@ -31,16 +32,15 @@
       },
 
       // update the guess with the found letter
-      _updateGuess: function(letter) {
-        // TODO: this is quite imperative: rewrite this to be functional
-        var foundIdx = 0;
-        var lastReplaceIdx = 0;
-        while ((foundIdx = this.answer.substr(lastReplaceIdx).indexOf(letter)) >= 0) {
-          this.guess = this.guess.replaceAt(lastReplaceIdx + foundIdx, letter);
-
-          // advance past the last replace
-          lastReplaceIdx = lastReplaceIdx + foundIdx + 1;
-        }
+      _updateGuess: function(guessLetter) {
+        var cursor = 0;
+        _.map(this.answer.split(""),
+          function(answerLetter){
+            if(guessLetter === answerLetter.toLocaleLowerCase()) {
+              this.guess = this.guess.replaceAt(cursor, answerLetter)
+            }
+            cursor++;
+          }, this);
       },
 
       checkGameOver: function() {
