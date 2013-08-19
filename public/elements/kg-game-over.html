@@ -12,18 +12,16 @@
         -webkit-user-select: none;
         -moz-user-select: none;
         overflow: hidden;
-        background: white;
-        padding:30px 42px;
+        background: yellow;
+        padding: 3px 10px;
         outline: 1px solid rgba(0,0,0,0.2);
         box-shadow: 0 4px 16px rgba(0,0,0,0.2);
         text-align: center;
       }
 
       polymer-ui-overlay {
-        top: 72px;
-        left: 50%;
-        width: 512px;
-        margin-left: -256px;
+        top: 0;
+        width: 100%;
       }
 
       polymer-ui-overlay p {
@@ -31,10 +29,10 @@
       }
     </style>
     <template if="{{gameState.won}}">
-      <polymer-ui-overlay id="dialog-won" active="true" backdrop="true" modal="true">
+      <polymer-ui-overlay id="dialog-won" active="true" modal="true">
         <!-- with the given CSS, the backdrop property does not work without this container div -->
         <div class="dialog">
-          <p>You found the word <em>{{gameState.answer}}</em>. &nbsp;Nice Job!</p>
+          You found the word <em>{{gameState.answer}}</em>. &nbsp;Nice Job!
           <button overlay-toggle on-click="continueGame">New Game</button>
         </div>
       </polymer-ui-overlay>
@@ -43,9 +41,9 @@
     <template if="{{gameState.gameOver && !gameState.won}}">
       <polymer-ui-overlay id="dialog-lost" active="true" backdrop="true" modal="true">
         <div class="dialog">
-          <p>Sorry, the man is dead.</p>
-          <!--<button overlay-toggle on-click="continueGame">Try Again</button>-->
+          Sorry, the man is dead.
           <button overlay-toggle on-click="continueGame">New Word</button>
+          <!--<button overlay-toggle on-click="continueGame">Try Again</button>-->
         </div>
       </polymer-ui-overlay>
     </template>
