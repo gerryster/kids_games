@@ -53,6 +53,10 @@
       clickLetter: function(event){ this.selectLetter(event.target.value); },
 
       selectLetter: function(letter) {
+        if(this.gameOver) {
+          return; // no letters can be selected if the game is over.
+        }
+
         this.model.guessLetter(letter);
         this.alphabet = _.filter(this.alphabet,
             function(letter_obj){ return letter_obj.letter !== letter })
