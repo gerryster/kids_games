@@ -39,7 +39,7 @@
     </template>
 
     <template if="{{gameState.gameOver && !gameState.won}}">
-      <polymer-ui-overlay id="dialog-lost" active="true" backdrop="true" modal="true">
+      <polymer-ui-overlay id="dialog-lost" active="true" modal="true">
         <div class="dialog">
           Sorry, the man is dead.
           <button overlay-toggle on-click="continueGame">New Word</button>
