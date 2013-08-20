@@ -1,7 +1,7 @@
 <link rel="import" href="kg-word-display">
 <link rel="import" href="kg-alphabet-selector">
 <link rel="import" href="kg-man">
-<link rel="import" href="kg-model">
+<link rel="import" href="kg-game-state">
 <link rel="import" href="kg-game-over">
 <style>
   html,
@@ -14,13 +14,13 @@
 <polymer-element name="kg-hangman">
   <template>
     <link rel="stylesheet" href="/assets/elements/kg-hangman.css">
-    <kg-model id="model"></kg-model>
+    <kg-game-state id="gameState"></kg-game-state>
     <div id="top-container">
-      <kg-word-display guess="{{$.model.guess}}"></kg-word-display>
-      <kg-man incorrectCount="{{$.model.incorrectCount}}"></kg-man>
+      <kg-word-display guess="{{$.gameState.guess}}"></kg-word-display>
+      <kg-man incorrectCount="{{$.gameState.incorrectCount}}"></kg-man>
     </div>
-    <kg-alphabet-selector model="{{$.model}}" gameOver="{{$.model.gameOver}}"></kg-alphabet-selector>
-    <kg-game-over gameState="{{$.model}}">
+    <kg-alphabet-selector gameState="{{$.gameState}}" gameOver="{{$.gameState.gameOver}}"></kg-alphabet-selector>
+    <kg-game-over gameState="{{$.gameState}}">
     </kg-game-over>
   </template>
   <script>
