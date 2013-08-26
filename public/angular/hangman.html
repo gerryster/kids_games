@@ -1,3 +1,4 @@
+<!doctype html>
 <html ng-app>
   <head>
     <script src="/assets/angular.js"></script>
@@ -10,11 +11,11 @@
     </style>
   </head>
   <body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}!</h1>
+    <div ng-init="alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')">
+    <!-- TODO: can I make it so this does not require an encllosing tag? -->
+    <div ng-repeat="letter in alphabet">
+      <label for="letter-{{letter}}">{{letter}}</label>
+      <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="clickLetter">
     </div>
   </body>
 </html>
