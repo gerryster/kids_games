@@ -6,3 +6,4 @@
 #
 #=require_tree ./
 #=require jquery
+#= require polymer-all/polymer/polymer
