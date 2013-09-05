@@ -28,6 +28,7 @@ end
 
 group :test, :development do
   gem "rspec-rails", "~> 2.4"
+  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
 end
 
 # To use ActiveModel has_secure_password
