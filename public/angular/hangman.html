@@ -1,15 +1,14 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="hangman">
   <head>
     <style>
-      html,
-      body {
+      html, body {
         margin: 0;
         padding: 0;
       }
     </style>
   </head>
-  <body>
+  <body ng-controller="HangmanCtrl">
     <div ng-init="alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')">
     <!-- TODO: can I make it so this does not require an enclosing tag? -->
     <div ng-repeat="letter in alphabet">

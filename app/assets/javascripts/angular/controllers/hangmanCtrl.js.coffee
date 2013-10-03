@@ -1,3 +1,4 @@
-hangman.controller('HangmanCtrl', (scope, $location, todoStorage, filterFilter)->
-	todos = $scope.todos = todoStorage.get()
-)
+hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
+	console.log "gameState", gameState
+	gameState.newGame()
+	console.log "Game answer: ", gameState.answer
