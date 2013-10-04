@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'angularjs-rails'
+gem 'angularjs-rails', '~> 1.2.0.rc2'
 gem 'haml-rails'
 gem 'rails', '3.2.13'
 gem 'sqlite3'
