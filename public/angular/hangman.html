@@ -1,6 +1,8 @@
 <!doctype html>
 <html ng-app="hangman">
   <head>
+    <link rel="stylesheet" href="/assets/angular/hangman.css">
+    <link rel="stylesheet" href="/assets/angular/word-display.css">
     <style>
       html, body {
         margin: 0;
@@ -9,10 +11,8 @@
     </style>
   </head>
   <body ng-controller="HangmanCtrl">
-    <link rel="stylesheet" href="/assets/elements/kg-hangman.css">
     <section id="top-container">
       <section id="word-display">
-        <link rel="stylesheet" href="/assets/elements/kg-word-display.css">
         {{guess}}
       </section>
       <kg-man>
