@@ -12,3 +12,6 @@ hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
 		# the character class is needed because of this CS wart: https://github.com/jashkenas/coffee-script/issues/607
     guess.replace(/[ ]/g, '_')
 
+  $scope.alphabet = alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')
+  $scope.clickLetter = (letter)->
+  	console.log "got into clickLetter with this letter: ", letter
