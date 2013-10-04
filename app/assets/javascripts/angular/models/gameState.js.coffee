@@ -10,4 +10,4 @@ hangman.factory 'gameState', ()->
 
   newGame: ()->
     @answer = @._randomWord()
-
+    @guess = new Array(@answer.length + 1).join(" ");
