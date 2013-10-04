@@ -9,12 +9,21 @@
     </style>
   </head>
   <body ng-controller="HangmanCtrl">
-    <div ng-init="alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')">
-    <!-- TODO: can I make it so this does not require an enclosing tag? -->
-    <div ng-repeat="letter in alphabet">
-      <label for="letter-{{letter}}">{{letter}}</label>
-      <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="clickLetter">
-    </div>
+    <link rel="stylesheet" href="/assets/elements/kg-hangman.css">
+    <section id="top-container">
+      <section id="word-display">
+        <link rel="stylesheet" href="/assets/elements/kg-word-display.css">
+        {{guess}}
+      </section>
+      <kg-man>
+    </section>
+    <section id="alphabet-selector" ng-init="alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')">
+      <!-- TODO: can I make it so this does not require an enclosing tag? -->
+      <div ng-repeat="letter in alphabet">
+        <label for="letter-{{letter}}">{{letter}}</label>
+        <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="clickLetter">
+      </div>
+    </section>
     <script src="/assets/angular.js"></script>
     <script src="/assets/angular/hangman-app.js"></script>
   </body>
