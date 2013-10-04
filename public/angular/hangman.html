@@ -18,11 +18,8 @@
       <kg-man>
     </section>
     <section id="alphabet-selector" ng-init="alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')">
-      <!-- TODO: can I make it so this does not require an enclosing tag? -->
-      <div ng-repeat="letter in alphabet">
-        <label for="letter-{{letter}}">{{letter}}</label>
-        <input type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="clickLetter">
-      </div>
+      <label ng-repeat-start="letter in alphabet" for="letter-{{letter}}">{{letter}}</label>
+      <input ng-repeat-end type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" on-click="clickLetter">
     </section>
     <script src="/assets/angular.js"></script>
     <script src="/assets/angular/hangman-app.js"></script>
