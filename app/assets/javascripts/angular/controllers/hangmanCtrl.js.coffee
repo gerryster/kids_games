@@ -16,3 +16,11 @@ hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
 
   $scope.clickLetter = (letter)->
     gameState.guessLetter(letter)
+
+  # allow letters to be chosen by keyboard
+  $scope.keyupLetter = (event)->
+    guess = String.fromCharCode(event.keyCode)
+    guessFound = _.find $scope.alphabet, (letter)->
+      letter == guess
+    if(guessFound)
+      $scope.clickLetter(guess)

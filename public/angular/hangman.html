@@ -11,7 +11,7 @@
       }
     </style>
   </head>
-  <body ng-controller="HangmanCtrl">
+  <body ng-controller="HangmanCtrl" ng-keyup="keyupLetter($event)">
     <section id="top-container">
       <section id="word-display">
         {{formattedGuess}}
