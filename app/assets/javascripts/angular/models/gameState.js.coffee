@@ -6,8 +6,41 @@ hangman.factory 'gameState', ()->
   ],
 
   _randomWord: ()->
-    this.WORDS[Math.floor(Math.random() * this.WORDS.length)]
+    @WORDS[Math.floor(Math.random() * @WORDS.length)]
 
   newGame: ()->
+    @incorrectCount = 0
+    @gameOver = false
+    @won = false
     @answer = @._randomWord()
-    @guess = new Array(@answer.length + 1).join(" ");
+    # create a placeholder space character for every letter in the answer
+    @guess = new Array(@answer.length + 1).join(" ")
+
+  guessLetter: (letter)->
+    letter = letter.toLocaleLowerCase()
+    if @answer.toLocaleLowerCase().indexOf(letter) >= 0
+      @._updateGuess(letter)
+    else
+      @incorrectCount++
+
+    @.checkGameOver()
+
+  # update the guess with the found letter
+  _updateGuess: (guessLetter)->
+    cursor = 0
+    _.map(@answer.split(""),
+      (answerLetter)->
+        if guessLetter == answerLetter.toLocaleLowerCase()
+          @guess = @guess.replaceAt(cursor, answerLetter)
+        cursor++
+      , @)
+
+  checkGameOver: ()->
+    if @answer == @guess
+      @won = true
+      @gameOver = true
+    else if @incorrectCount == @MAX_INCORRECT_GUESSES
+      @gameOver = true
+
+  resetGame: ()->
+    @.ready()
