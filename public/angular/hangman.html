@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="/assets/angular/hangman.css">
     <link rel="stylesheet" href="/assets/angular/word-display.css">
+    <link rel="stylesheet" href="/assets/angular/man.css">
     <script src="/assets/underscore.js?body=1" type="text/javascript"></script>
     <style>
       html, body {
@@ -16,7 +17,9 @@
       <section id="word-display">
         {{formattedGuess}}
       </section>
-      <kg-man>
+      <section id="man-section">
+        <div id="man">
+      </section>
     </section>
     <section id="alphabet-selector">
       <label ng-repeat-start="letter in alphabet" for="letter-{{letter}}">{{letter}}</label>
