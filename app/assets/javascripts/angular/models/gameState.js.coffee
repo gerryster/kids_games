@@ -4,6 +4,7 @@ hangman.factory 'gameState', ()->
     'cow', 'chair', 'ball', 'kite', 'bat', 'bird', 'one', 'two', 'three',
     'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
   ],
+  MAX_INCORRECT_GUESSES: 1,
 
   _randomWord: ()->
     @WORDS[Math.floor(Math.random() * @WORDS.length)]
@@ -15,6 +16,8 @@ hangman.factory 'gameState', ()->
     @answer = @._randomWord()
     # create a placeholder space character for every letter in the answer
     @guess = new Array(@answer.length + 1).join(" ")
+
+    console.log "Game answer: #{@answer}"
 
   guessLetter: (letter)->
     letter = letter.toLocaleLowerCase()
