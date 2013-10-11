@@ -36,9 +36,6 @@ hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
     yOffset = gameState.incorrectCount * - IMAGE_HEIGHT_PX
     "background-position": "0 " + yOffset + "px"
 
-  $scope.newGame = ()->
-    gameState.newGame()
-
   initAlphabet = ()->
     $scope.alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')
 

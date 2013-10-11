@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/assets/angular/word-display.css">
     <link rel="stylesheet" href="/assets/angular/man.css">
     <link rel="stylesheet" href="/assets/angular/alphabet-selector.css">
+    <link rel="stylesheet" href="/assets/angular/game-over.css">
     <style>
       html, body {
         margin: 0;
@@ -16,7 +17,7 @@
     <section id="game-over" ng-if="gameState.gameOver">
       <div class="dialog-won" ng-if="gameState.won">
         You found the word <em>{{gameState.answer}}</em>. &nbsp;Nice Job!
-        <button ng-click="newGame()">New Game</button>
+        <button ng-click="gameState.newGame()">New Game</button>
       </div>
       <div class="dialog-lost" ng-if="!gameState.won">
         Sorry, the man is dead.
