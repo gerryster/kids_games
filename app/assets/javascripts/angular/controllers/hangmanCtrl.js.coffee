@@ -1,4 +1,6 @@
 hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
+  IMAGE_HEIGHT_PX = 400
+
   gameState.newGame()
   console.log "Game answer: ", gameState.answer
 
@@ -24,3 +26,10 @@ hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
       letter == guess
     if(guessFound)
       $scope.clickLetter(guess)
+
+  $scope.advanceDeath = ()->
+    # TODO: optimize this so it is not called twice every time.
+    #       I think this requires a directive.
+    yOffset = gameState.incorrectCount * - IMAGE_HEIGHT_PX
+    console.log "yOffset = #{yOffset}"
+    "background-position": "0 " + yOffset + "px"
