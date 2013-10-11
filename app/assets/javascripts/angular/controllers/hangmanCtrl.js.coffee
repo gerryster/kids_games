@@ -16,16 +16,18 @@ hangman.controller 'HangmanCtrl', ($scope, $location, gameState)->
 
   $scope.alphabet = ('ABCDEFGHIJKLMNOPQRSTUVWXYZ').split('')
 
-  $scope.clickLetter = (letter)->
-    gameState.guessLetter(letter)
-
   # allow letters to be chosen by keyboard
   $scope.keyupLetter = (event)->
     guess = String.fromCharCode(event.keyCode)
-    guessFound = _.find $scope.alphabet, (letter)->
-      letter == guess
+    guessFound = _.find $scope.alphabet, (letter)-> letter == guess
     if(guessFound)
-      $scope.clickLetter(guess)
+      $scope.selectLetter(guess)
+
+  $scope.selectLetter = (guessedLetter)->
+    # no letters can be selected if the game is over.
+    if(!gameState.gameOver)
+      gameState.guessLetter(guessedLetter)
+      $scope.alphabet = _.filter($scope.alphabet, (letter)-> letter != guessedLetter)
 
   $scope.advanceDeath = ()->
     # TODO: optimize this so it is not called twice every time.

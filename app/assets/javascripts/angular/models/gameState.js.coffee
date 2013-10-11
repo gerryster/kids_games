@@ -43,4 +43,4 @@ hangman.factory 'gameState', ()->
       @gameOver = true
 
   resetGame: ()->
-    @.ready()
+    @.newGame()

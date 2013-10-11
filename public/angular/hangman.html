@@ -23,7 +23,7 @@
     </section>
     <section id="alphabet-selector">
       <label ng-repeat-start="letter in alphabet" for="letter-{{letter}}">{{letter}}</label>
-      <input ng-repeat-end type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" ng-click="clickLetter(letter)">
+      <input ng-repeat-end type="radio" name="letter" id="letter-{{letter}}" value="{{letter}}" ng-click="selectLetter(letter)">
     </section>
     <script src="/assets/angular.js"></script>
     <script src="/assets/angular/hangman-app.js"></script>
