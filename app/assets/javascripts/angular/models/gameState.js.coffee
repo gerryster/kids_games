@@ -4,7 +4,7 @@ hangman.factory 'gameState', ()->
     'cow', 'chair', 'ball', 'kite', 'bat', 'bird', 'one', 'two', 'three',
     'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'
   ],
-  MAX_INCORRECT_GUESSES: 1,
+  MAX_INCORRECT_GUESSES: 10,
 
   _randomWord: ()->
     @WORDS[Math.floor(Math.random() * @WORDS.length)]
