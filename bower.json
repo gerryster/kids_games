@@ -1,0 +1,26 @@
+{
+  "name": "kids_games",
+  "version": "0.2.0",
+  "homepage": "https://github.com/gerryster/kids_games",
+  "authors": [
+    "Ryan Gerry <gerryster@gmail.com>"
+  ],
+  "description": "A collection of kids games.",
+  "keywords": [
+    "polymer",
+    "children",
+    "games"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.4.1"
+  }
+}
